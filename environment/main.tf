@@ -77,7 +77,7 @@ module "rds" {
 
   vpc_id                     = module.vpc.vpc_id
   vpc_cidr                   = module.vpc.vpc_cidr
-  subnet_ids                 = [module.vpc.private_subnet_id, aws_subnet.private_rds.id]  # Две подсети в разных AZ (требование AWS)
+  subnet_ids                 = [module.vpc.private_subnet_id, aws_subnet.private_rds.id]  # Two subnets in different AZs (AWS requirement)
   allowed_security_group_ids = []  # Will allow from VPC CIDR instead to avoid circular dependency
 
   db_identifier = "appdb"
